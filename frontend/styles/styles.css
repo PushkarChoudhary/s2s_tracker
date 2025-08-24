@@ -1,0 +1,146 @@
+/* ===== Global Reset & Typography ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: #f7f9fc;
+  color: #2d3748;
+  line-height: 1.6;
+}
+
+/* ===== Layout Containers ===== */
+.main-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 24px;
+}
+
+/* ===== Headings ===== */
+h2, h3 {
+  color: #1a202c;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+h2 {
+  font-size: 1.6rem;
+}
+
+h3 {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+/* ===== Error Message ===== */
+.error-message {
+  color: crimson;
+  margin: 12px 0;
+  font-weight: 500;
+}
+
+/* ===== Affiliate Login (Home) ===== */
+.affiliate-list {
+  list-style: none;
+  margin-top: 12px;
+}
+
+.affiliate-list li {
+  margin: 8px 0;
+}
+
+.btn-primary {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn-primary:hover {
+  background: #1d4ed8;
+  transform: translateY(-2px);
+}
+
+.btn-primary:active {
+  background: #1e40af;
+  transform: translateY(0);
+}
+
+/* ===== Dashboard Sections ===== */
+.card {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+}
+
+/* ===== Code Block ===== */
+code {
+  display: block;
+  background: #edf2f7;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-family: "Courier New", monospace;
+  color: #063261;
+  font-weight: 400;
+  word-break: break-word;
+}
+
+/* ===== Table Styling ===== */
+.table-wrapper {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+
+thead {
+  background: #2563eb;
+  color: white;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #e2e8f0;
+}
+
+tbody tr:nth-child(even) {
+  background: #f8fafc;
+}
+
+tbody tr:hover {
+  background: #ebf4ff;
+  transition: background 0.2s ease;
+}
+
+/* ===== Grid Layout for Dashboard ===== */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+@media (max-width: 768px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}
