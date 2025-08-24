@@ -1,0 +1,51 @@
+// prisma/schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Affiliate {
+  id        Int      @id @default(autoincrement())
+  name      String
+  clicks    Click[]
+  createdAt DateTime @default(now())
+}
+
+model Campaign {
+  id        Int      @id @default(autoincrement())
+  name      String
+  clicks    Click[]
+  createdAt DateTime @default(now())
+}
+
+model Click {
+  id          Int         @id @default(autoincrement())
+  affiliateId Int
+  campaignId  Int
+  clickId     String
+  timestamp   DateTime    @default(now())
+  affiliate   Affiliate   @relation(fields: [affiliateId], references: [id])
+  campaign    Campaign    @relation(fields: [campaignId], references: [id])
+  conversion  Conversion?
+
+  @@unique([affiliateId, campaignId, clickId])
+  @@index([affiliateId])
+  @@index([campaignId])
+  @@index([clickId])
+}
+
+model Conversion {
+  id         Int      @id @default(autoincrement())
+  clickRefId Int      @unique
+  amount     Float
+  currency   String
+  timestamp  DateTime @default(now())
+  click      Click    @relation(fields: [clickRefId], references: [id])
+
+  @@index([timestamp])
+}
